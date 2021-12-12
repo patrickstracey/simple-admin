@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BaseInterface } from "../models/classroom.model";
-import fetchData from "../services/fetchData";
+import { fetchData, fetchGraphQlData } from "../services/fetchData";
 import ConfirmationModal from "./ConfirmationModal";
 import TableRow from "./TableRow";
 
@@ -28,7 +28,8 @@ const AdminTable: React.FC<{ tableData: string }> = (props) => {
 
   async function buildPage(dataType: string) {
     setLoading(true);
-    const res = await fetchData(dataType);
+    //const res = await fetchData(dataType);
+    const res = await fetchGraphQlData(dataType);
     setDataItems(res.collection);
     setHeaders(buildHeaders(res.collection));
     setLoading(false);
