@@ -1,0 +1,4 @@
+__pycache__/
+/admin_api_env
+
+**.env
