@@ -6,7 +6,7 @@ from flask import jsonify
 client = MongoClient(os.environ.get('MONGO_URI_PROD'))
 db = client['mgov']
 
-def pullCollection(collection):
+def pull_collection(collection):
     result = {'count': 0, 'collection': []}
     allItems = db[collection].find({})
     for item in allItems:
@@ -17,7 +17,7 @@ def pullCollection(collection):
     response.status_code = 200
     return response
 
-def pullCollectionUnformatted(collection):
+def pull_collection_unformatted(collection):
     result = []
     allItems = db[collection].find({})
     for item in allItems:
