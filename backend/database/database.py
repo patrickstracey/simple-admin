@@ -16,3 +16,10 @@ def pullCollection(collection):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.status_code = 200
     return response
+
+def pullCollectionUnformatted(collection):
+    result = []
+    allItems = db[collection].find({})
+    for item in allItems:
+        result.append(item)
+    return result
