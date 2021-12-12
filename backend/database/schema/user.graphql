@@ -5,7 +5,7 @@ type User {
 }
 
 type UserResult {
-  users: [User]
+  collection: [User]
   count: Int!
   errors: [String]
 }

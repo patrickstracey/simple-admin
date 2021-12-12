@@ -5,7 +5,7 @@ type Classroom {
 }
 
 type ClassroomResult {
-  classroom: [Classroom]
+  collection: [Classroom]
   count: Int!
   errors: [String]
 }
