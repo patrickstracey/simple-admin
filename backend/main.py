@@ -3,18 +3,19 @@ from flask_restful import Api
 from ariadne import load_schema_from_path, make_executable_schema, \
     graphql_sync, snake_case_fallback_resolvers, ObjectType
 from ariadne.constants import PLAYGROUND_HTML
-from resources.universalResource import universalEndpoint
-from resources.users import resolve_users
+from resources.universal_resource import universal_endpoint
+from resources.universal_resolver import resolve_request
 
 app = Flask(__name__)
 api = Api(app)
 
 
-api.add_resource(universalEndpoint, '/<string:collection>')
+api.add_resource(universal_endpoint, '/<string:collection>')
 
 query = ObjectType("Query")
 
-query.set_field("users", resolve_users)
+query.set_field("users", resolve_request)
+query.set_field("classroom", resolve_request)
 
 type_defs = load_schema_from_path("database/schema")
 schema = make_executable_schema(
