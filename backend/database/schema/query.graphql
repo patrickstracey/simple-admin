@@ -1,4 +1,10 @@
 type Query {
   users: UserResult!
   classroom: ClassroomResult!
+  acls: AclsResult!
+}
+
+type BaseInterface {
+  _id: String
+  type: Int
 }

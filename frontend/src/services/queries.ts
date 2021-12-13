@@ -1,3 +1,21 @@
+const ACLS = `
+query fetchAllAcls {
+  acls {
+    count
+    collection {
+      formal_name
+      title
+      district
+      permission
+      _id
+      classroom {
+        _id
+      }
+    }
+  }
+}
+`;
+
 const CLASSROOM = `
 query fetchAllClassrooms {
   classroom {
@@ -26,9 +44,11 @@ query fetchAllUsers {
 
 export function getQuery(queryName: string) {
   switch (queryName) {
-    case "users":
-      return USER;
+    case "acls":
+      return ACLS;
     case "classroom":
       return CLASSROOM;
+    case "users":
+      return USER;
   }
 }
