@@ -20,6 +20,7 @@ query.set_field("acls", resolve_request)
 query.set_field("bills", resolve_request)
 query.set_field("chambers", resolve_request)
 query.set_field("classroom", resolve_request)
+query.set_field("discussions", resolve_request)
 query.set_field("users", resolve_request)
 
 type_defs = load_schema_from_path("database/schema")

@@ -62,6 +62,24 @@ query fetchAllClassrooms {
 }
 `;
 
+const DISCUSSIONS = `
+query fetchAllDiscussions {
+  discussions {
+    count
+    collection {
+      _id
+      author
+      name
+      created
+      comment_count
+      classroom {
+        _id
+      }
+    }
+  }
+}
+`;
+
 const USER = `
 query fetchAllUsers {
   users {
@@ -85,7 +103,11 @@ export function getQuery(queryName: string) {
       return CHAMBERS;
     case "classroom":
       return CLASSROOM;
+    case "discussions":
+      return DISCUSSIONS;
     case "users":
       return USER;
+    default:
+      break;
   }
 }
