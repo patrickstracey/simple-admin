@@ -5,7 +5,7 @@ import ConfirmationModal from "./ConfirmationModal";
 import TableRow from "./TableRow";
 
 const AdminTable: React.FC<{ tableData: string }> = (props) => {
-  const displayTypes: string[] = ["string", "number"];
+  const displayTypes: string[] = ["string", "number", "object"];
   const [tableObjects, setDataItems] = useState<BaseInterface[]>([]);
   const [headerValues, setHeaders] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
