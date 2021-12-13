@@ -4,9 +4,7 @@ type Acls {
   title: String
   district: String
   permission: Int!
-  classroom: BaseInterface {
-  _id: String!
-  }
+  classroom: BaseInterface
 }
 
 type AclsResult {

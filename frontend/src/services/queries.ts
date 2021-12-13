@@ -16,6 +16,39 @@ query fetchAllAcls {
 }
 `;
 
+const BILLS = `
+query fetchAllBills {
+  bills {
+    count
+    collection {
+      _id
+      prefix
+      name
+      created
+      classroom {
+        _id
+      }
+    }
+  }
+}
+`;
+
+const CHAMBERS = `
+query fetchAllChambers {
+  chambers {
+    count
+    collection {
+      _id
+      name
+      legislation_prefix
+      classroom {
+        _id
+      }
+    }
+  }
+}
+`;
+
 const CLASSROOM = `
 query fetchAllClassrooms {
   classroom {
@@ -46,6 +79,10 @@ export function getQuery(queryName: string) {
   switch (queryName) {
     case "acls":
       return ACLS;
+    case "bills":
+      return BILLS;
+    case "chambers":
+      return CHAMBERS;
     case "classroom":
       return CLASSROOM;
     case "users":

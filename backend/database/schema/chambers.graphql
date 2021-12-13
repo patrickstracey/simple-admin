@@ -1,0 +1,12 @@
+type Chambers {
+  _id: String!
+  name: String
+  legislation_prefix: String
+  classroom: BaseInterface
+}
+
+type ChambersResult {
+  collection: [Chambers]
+  count: Int!
+  errors: [String]
+}

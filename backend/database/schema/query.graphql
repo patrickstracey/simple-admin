@@ -2,6 +2,8 @@ type Query {
   users: UserResult!
   classroom: ClassroomResult!
   acls: AclsResult!
+  bills: BillsResult!
+  chambers: ChambersResult!
 }
 
 type BaseInterface {
