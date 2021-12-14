@@ -80,6 +80,51 @@ query fetchAllDiscussions {
 }
 `;
 
+const FLOWS = `
+query fetchAllFlows {
+  flows {
+    count
+    collection {
+      _id
+      name
+      classroom {
+        _id
+      }
+    }
+  }
+}
+`;
+
+const PARTIES = `
+query fetchAllParties {
+  parties {
+    count
+    collection {
+      _id
+      name
+      color
+      classroom {
+        _id
+      }
+    }
+  }
+}
+`;
+
+const PRESETS = `
+query fetchAllPresets {
+  presets {
+    count
+    collection {
+      _id
+      type
+      name
+      description
+    }
+  }
+}
+`;
+
 const USER = `
 query fetchAllUsers {
   users {
@@ -105,6 +150,12 @@ export function getQuery(queryName: string) {
       return CLASSROOM;
     case "discussions":
       return DISCUSSIONS;
+    case "flows":
+      return FLOWS;
+    case "parties":
+      return PARTIES;
+    case "presets":
+      return PRESETS;
     case "users":
       return USER;
     default:

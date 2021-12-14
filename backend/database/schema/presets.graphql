@@ -1,0 +1,12 @@
+type Presets {
+  _id: String!
+  type: Int
+  name: String
+  description: String
+}
+
+type PresetsResult {
+  collection: [Presets]
+  count: Int!
+  errors: [String]
+}
