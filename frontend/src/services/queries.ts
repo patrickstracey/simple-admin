@@ -24,6 +24,7 @@ query fetchAllBills {
       _id
       prefix
       name
+      preamble
       created
       classroom {
         _id
