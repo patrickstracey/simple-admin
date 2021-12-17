@@ -1,6 +1,5 @@
 import os
 from pymongo import MongoClient
-from flask import jsonify
 
 
 client = MongoClient(os.environ.get('MONGO_URI_PROD'))
