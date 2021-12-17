@@ -15,10 +15,10 @@ const Modal = (props) => {
       </div>
 
       <div className="confirm-btns">
-        <button className="delete" onClick={props.onConfirm}>
+        <button className="btn delete" onClick={props.onConfirm}>
           Delete
         </button>
-        <button className="cancel" onClick={props.onCancel}>
+        <button className="btn cancel" onClick={props.onCancel}>
           Cancel
         </button>
       </div>
