@@ -1,18 +1,12 @@
 from flask import Flask, request, jsonify
-from flask_restful import Api
 from ariadne import load_schema_from_path, make_executable_schema, \
     graphql_sync, snake_case_fallback_resolvers, ObjectType
 from ariadne.constants import PLAYGROUND_HTML
 from flask_cors import CORS
-from resources.universal_resource import universal_endpoint
 from resources.universal_resolver import resolve_request
 
 app = Flask(__name__)
-api = Api(app)
 CORS(app)
-
-
-api.add_resource(universal_endpoint, '/<string:collection>')
 
 query = ObjectType("Query")
 
