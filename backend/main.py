@@ -4,21 +4,15 @@ from ariadne import load_schema_from_path, make_executable_schema, \
 from ariadne.constants import PLAYGROUND_HTML
 from flask_cors import CORS
 from resources.universal_resolver import resolve_request
+from database.database import schema
 
 app = Flask(__name__)
 CORS(app)
 
 query = ObjectType("Query")
 
-query.set_field("acls", resolve_request)
-query.set_field("bills", resolve_request)
-query.set_field("chambers", resolve_request)
-query.set_field("classroom", resolve_request)
-query.set_field("discussions", resolve_request)
-query.set_field("flows", resolve_request)
-query.set_field("parties", resolve_request)
-query.set_field("presets", resolve_request)
-query.set_field("users", resolve_request)
+for data_type in schema:
+    query.set_field(data_type, resolve_request)
 
 type_defs = load_schema_from_path("database/schema")
 schema = make_executable_schema(
