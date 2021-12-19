@@ -1,0 +1,14 @@
+type Discussions {
+  _id: String!
+  author: String
+  name: String
+  created: String
+  comment_count: Int
+  classroom: BaseInterface
+}
+
+type DiscussionsResult {
+  collection: [Discussions]
+  count: Int!
+  errors: [String]
+}

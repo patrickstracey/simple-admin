@@ -1,0 +1,14 @@
+type Bills {
+  _id: String!
+  prefix: String
+  name: String
+  preamble: String
+  created: String
+  classroom: BaseInterface
+}
+
+type BillsResult {
+  collection: [Bills]
+  count: Int!
+  errors: [String]
+}

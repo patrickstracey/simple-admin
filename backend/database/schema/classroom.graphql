@@ -1,0 +1,11 @@
+type Classroom {
+  _id: String!
+  name: String!
+  invite_code: String!
+}
+
+type ClassroomResult {
+  collection: [Classroom]
+  count: Int!
+  errors: [String]
+}

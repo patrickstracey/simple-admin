@@ -9,9 +9,13 @@ const TableRow: React.FC<{
 }> = (props) => {
   const objectData = [];
   props.values.forEach((value) => {
-    objectData.push(
-      <td key={value}>{props.item[value] ? props.item[value] : "-"}</td>
-    );
+    let cellData = "-";
+    if (props.item[value]?._id) {
+      cellData = props.item[value]?._id;
+    } else if (props.item[value]) {
+      cellData = props.item[value];
+    }
+    objectData.push(<td key={value}>{cellData}</td>);
   });
 
   return (

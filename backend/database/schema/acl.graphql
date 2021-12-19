@@ -1,0 +1,14 @@
+type Acls {
+  _id: String!
+  formal_name: String
+  title: String
+  district: String
+  permission: Int!
+  classroom: BaseInterface
+}
+
+type AclsResult {
+  collection: [Acls]
+  count: Int!
+  errors: [String]
+}

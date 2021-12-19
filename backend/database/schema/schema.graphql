@@ -1,0 +1,20 @@
+schema {
+  query: Query
+}
+
+type Query {
+  acls: AclsResult!
+  bills: BillsResult!
+  chambers: ChambersResult!
+  classroom: ClassroomResult!
+  discussions: DiscussionsResult!
+  flows: FlowsResult!
+  parties: PartiesResult!
+  presets: PresetsResult!
+  users: UserResult!
+}
+
+type BaseInterface {
+  _id: String
+  type: Int
+}

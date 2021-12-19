@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { BaseInterface } from "../models/classroom.model";
-import fetchData from "../services/fetchData";
+import { fetchGraphQlData } from "../services/fetchData";
 import ConfirmationModal from "./ConfirmationModal";
 import TableRow from "./TableRow";
 
 const AdminTable: React.FC<{ tableData: string }> = (props) => {
-  const displayTypes: string[] = ["string", "number"];
+  const displayTypes: string[] = ["string", "number", "object"];
   const [tableObjects, setDataItems] = useState<BaseInterface[]>([]);
   const [headerValues, setHeaders] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [confirmation, setConfirmation] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<BaseInterface>();
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     buildPage(props.tableData);
@@ -28,9 +29,10 @@ const AdminTable: React.FC<{ tableData: string }> = (props) => {
 
   async function buildPage(dataType: string) {
     setLoading(true);
-    const res = await fetchData(dataType);
+    const res = await fetchGraphQlData(dataType);
     setDataItems(res.collection);
     setHeaders(buildHeaders(res.collection));
+    setCount(res.count);
     setLoading(false);
   }
 
@@ -49,7 +51,7 @@ const AdminTable: React.FC<{ tableData: string }> = (props) => {
   }
 
   return (
-    <div>
+    <div className="m1">
       <h1 className="table-title">{props.tableData}</h1>
       <table>
         <thead>
@@ -82,6 +84,7 @@ const AdminTable: React.FC<{ tableData: string }> = (props) => {
           onConfirm={deleteItem}
         />
       )}
+      <p>{count} Results Returned</p>
     </div>
   );
 };

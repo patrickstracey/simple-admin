@@ -1,0 +1,12 @@
+type Parties {
+  _id: String!
+  name: String
+  color: String
+  classroom: BaseInterface
+}
+
+type PartiesResult {
+  collection: [Parties]
+  count: Int!
+  errors: [String]
+}

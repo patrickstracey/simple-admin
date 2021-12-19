@@ -1,0 +1,11 @@
+type User {
+  _id: String!
+  username: String!
+  email: String!
+}
+
+type UserResult {
+  collection: [User]
+  count: Int!
+  errors: [String]
+}

@@ -1,0 +1,11 @@
+type Flows {
+  _id: String!
+  name: String
+  classroom: BaseInterface
+}
+
+type FlowsResult {
+  collection: [Flows]
+  count: Int!
+  errors: [String]
+}
