@@ -35,8 +35,8 @@ th {
 }
 
 table {
-  margin: 1rem;
   width: calc(100% - 2rem);
+  margin-bottom: 12px;
 }
 
 button {
@@ -51,8 +51,11 @@ button:hover {
   opacity: 1;
 }
 
-.table-title {
+.m1 {
   margin: 1rem;
+}
+
+.table-title {
   text-transform: capitalize;
 }
 
